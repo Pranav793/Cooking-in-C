@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "cook_recipe.h"
 
 char name[] = "Strawberry Shortcake";
 char descrip[] = "An old-fashioned, tender shortcake with two layers of strawberries topped with whipped cream.\n";
@@ -9,7 +10,7 @@ char url[] = "https://www.allrecipes.com/recipe/8201/strawberry-shortcake/";
 int len_ingredients = 10;
 int len_steps = 5;
 
-char ingredients[10][1024] = {
+char *ingredients[10][1024] = {
                             "3 pints fresh strawberries", 
                             "1/2 cup white sugar", 
                             "2 and 1/4 cups all-purpose flour", 
@@ -22,7 +23,8 @@ char ingredients[10][1024] = {
                             "2 cups whipped heavy cream"
                             };
 
-char steps[5][300] = {
+
+char *steps[5][300] = {
                         "Step 1: Slice the strawberries and toss them with 1/2 cup of white sugar. Set aside.", 
                         "Step 2: Preheat oven to 425 degrees F (220 degrees C). Grease and flour one 8 inch round cake pan.",
                         "Step 3: In a medium bowl combine the flour, baking powder, 2 tablespoons white sugar and the salt. With a pastry blender cut in the shortening until the mixture resembles coarse crumbs. Make a well in the center and add the beaten egg and milk. Stir until just combined.", 
@@ -31,40 +33,7 @@ char steps[5][300] = {
                     };
 
 int main(void) {
-    printf("-------------------------------\n");
-    printf("\n%s\n", name);
-    printf("%s\n", descrip);
-    printf("Total time: %s\n", totaltime);
-    printf("%s\n", url);
-
-    printf("\nFirstly, you need to collect your ingredients!\n");
-    
-    for (int i = 0; i < len_ingredients; i++)
-    {
-        printf("\n%s\n", ingredients[i]);
-        printf("Do you have these ingredients? If so, hit Enter to continue. Hit 'x' then Enter if you don't or wish to quit the recipe.\n");
-        int c = getchar();
-        if(c == 'x') {
-            exit(0); // should be return to menu
-        }
-        if(c) {
-            printf("Nice!\n");
-        }
-    }
-
-    printf("\nTime to actually cook!\n");
-    
-    for (int i = 0; i < len_steps; i++)
-    {
-        printf("\n%s\n", steps[i]);
-        printf("Did you complete this step? If so hit Enter to continue.\n");
-        int c = getchar();
-        if(c) {
-            printf("Nice!\n");
-        }
-    }
-
-    printf("\nYou have finished the recipe! Congrats!\n");
+    cook_recipe(name, descrip, totaltime, url, ingredients, steps, len_ingredients, len_steps);
     
     return 0;
 
