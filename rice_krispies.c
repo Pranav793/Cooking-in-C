@@ -15,7 +15,7 @@ char *ingredients[4][40] = {
                             "6 Tbsp butter (salted)", 
                             "6 cups mini marshmallows (10oz. package)", 
                             "1/2 tsp vanilla extract", 
-                            "4 cups rice krispie cereal"
+                            "4 cups rice krispie cereal",
                             };
 
 char *steps[7][300] = {

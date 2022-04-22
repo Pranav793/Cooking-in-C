@@ -18,6 +18,8 @@ int cook_recipe(char *name, char *descrip, char *totaltime, char *url, char **in
         printf("Do you have these ingredients? If so, hit Enter to continue. Hit 'x' then Enter if you don't or wish to quit the recipe.\n");
         int c = getchar();
         if(c == 'x') {
+
+            printf("Sorry, you cannot make %s without %s.", name, ingredients[i]);
             exit(0); // should be return to menu
         }
         if(c) {
