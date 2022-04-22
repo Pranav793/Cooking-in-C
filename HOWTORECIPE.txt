@@ -1,0 +1,16 @@
+Okay so this is how to make a recipe
+
+1. Find a recipe online and make sure it has 
+    a. name
+    b. description
+    c. total time
+    d. ingredients list
+    e. steps list
+
+2. Copy an old recipe file and fill in the attributes
+    a. DO NOT FORGET to change len_ingredients, len_steps AND the actual numbers inside the array definition
+
+3. Edit the Makefile
+    a. copy an old recipe section and replace recipe names to match the new one
+    b. make sure to add the recipe to the all command at the top
+    c. make sure to add the recipe.o and recipe file to the clean command

@@ -1,5 +1,8 @@
 all: rice_krispies strawberry_shortcake brownie
 
+clean:
+	rm -f cook_recipe.o strawberry_shortcake.o strawberry_shortcake rice_krispies.o rice_krispies brownie.o brownie
+
 cook_recipe.o: cook_recipe.c cook_recipe.h
 	clang -c cook_recipe.c
 
@@ -20,6 +23,3 @@ brownie: cook_recipe.o brownie.o
 
 brownie.o: brownie.c cook_recipe.h
 	clang -c brownie.c
-
-clean:
-	rm -f cook_recipe.o strawberry_shortcake.o strawberry_shortcake rice_krispies.o rice_krispies brownie.o brownie
